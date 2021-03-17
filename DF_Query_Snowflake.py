@@ -14,10 +14,8 @@ engine = create_engine(
     f'snowflake://{snowflake_connection_details["user"]}:{snowflake_connection_details["password"]}@{snowflake_connection_details["account"]}/WORLD_CUPS_DEV')
 
 df = pd.read_csv(
-    r"C:\Users\Thomas\OneDrive\Documents\Football_Project_Github\Data\WorldCupPlayers.csv")
+    r"C:\Users\Thomas\OneDrive\Documents\Calcio\Data\WorldCupPlayers.csv")
 print(df)
-
-
 
 df.to_sql('players', engine, if_exists='replace',
           schema='MATCHES', index=False, chunksize=16000)
